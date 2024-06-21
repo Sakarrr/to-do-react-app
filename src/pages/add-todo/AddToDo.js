@@ -1,7 +1,13 @@
+import { useRef } from "react";
 import NavBar from "../NavBar";
 
 const AddToDo = () => {
-  const addToDo = () => {};
+  const todoText = useRef();
+
+  const addToDo = (e) => {
+    e.preventDefault();
+    console.log(todoText.current.value);
+  };
 
   return (
     <>
@@ -10,7 +16,7 @@ const AddToDo = () => {
       <div className="todo_container">
         <h1>Add To-Do:</h1>
         <form onSubmit={addToDo}>
-          <input type="text"></input>
+          <input type="text" ref={todoText}></input>
           <button>Save to-do</button>
         </form>
       </div>
@@ -19,3 +25,5 @@ const AddToDo = () => {
 };
 
 export default AddToDo;
+
+// onChange={(e)=>setToDoText(e.target.value.replace(/\D/g,""))} // Filters number can type character
