@@ -16,6 +16,10 @@ const MainPage = () => {
   return (
     <>
       <NavBar />
+
+      <div className="todo_container">
+        <h3>Your To Do:</h3>
+      </div>
       {/* <Link to="/add">Go to add Page</Link> */}
       {/* <button onClick={login}>Login</button> */}
     </>
