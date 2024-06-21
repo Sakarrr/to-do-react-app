@@ -23,11 +23,14 @@ const MainPage = () => {
 
       <div className="todo_container">
         <h3>Your To Do:</h3>
-        {getTodo.map((todo) => (
+        {getTodo.map((todo, i) => (
           <>
             <div className="single_todo">
               {" "}
-              {todo} <FaEye size={"16px"} />
+              {todo}{" "}
+              <Link to={`/view/${i}`}>
+                <FaEye size={"16px"} />
+              </Link>
             </div>
           </>
         ))}
