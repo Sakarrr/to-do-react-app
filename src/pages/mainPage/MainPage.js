@@ -12,6 +12,9 @@ const MainPage = () => {
   //     history.push("/add"); // To navitage users programatically
   //     // history.replace("/add"); // TO navigate and disallow back feature
   //   };
+  const getTodo = localStorage.getItem("todo")
+    ? JSON.parse(localStorage.getItem("todo"))
+    : [];
 
   return (
     <>
@@ -19,6 +22,11 @@ const MainPage = () => {
 
       <div className="todo_container">
         <h3>Your To Do:</h3>
+        {getTodo.map((todo) => (
+          <>
+            <div className="single_todo"> {todo}</div>
+          </>
+        ))}
       </div>
       {/* <Link to="/add">Go to add Page</Link> */}
       {/* <button onClick={login}>Login</button> */}
