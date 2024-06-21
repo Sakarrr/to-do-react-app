@@ -2,6 +2,7 @@
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import AddToDo from "../add-todo/AddToDo";
 import NavBar from "../NavBar";
+import { FaEye } from "react-icons/fa";
 
 const MainPage = () => {
   //   const history = useHistory();
@@ -24,7 +25,10 @@ const MainPage = () => {
         <h3>Your To Do:</h3>
         {getTodo.map((todo) => (
           <>
-            <div className="single_todo"> {todo}</div>
+            <div className="single_todo">
+              {" "}
+              {todo} <FaEye size={"16px"} />
+            </div>
           </>
         ))}
       </div>
