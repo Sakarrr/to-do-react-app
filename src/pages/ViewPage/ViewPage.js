@@ -26,6 +26,13 @@ const ViewPage = () => {
 
   const getData = getStorage[getID];
 
+  const onDeleteHandler = () => {
+    getStorage.splice(getID, 1);
+    localStorage.setItem("todo", JSON.stringify(getStorage));
+
+    history.replace("/");
+  };
+
   const style = {
     background: "#e7e7e7",
     padding: "20px",
@@ -49,6 +56,11 @@ const ViewPage = () => {
       </div>
 
       <div style={style}>{getData}</div>
+
+      <button onClick={onDeleteHandler} style={{ background: "red" }}>
+        {" "}
+        Delete To-Do
+      </button>
     </>
   );
 };
