@@ -27,8 +27,8 @@ const MainPage = () => {
           <>
             <div className="single_todo">
               {" "}
-              {todo}{" "}
-              <Link to={`/view/${i}`}>
+              {todo} {/* <Link to={`/view/${i}`}> */}
+              <Link to={`/view?id=${i}`}>
                 <FaEye size={"16px"} />
               </Link>
             </div>

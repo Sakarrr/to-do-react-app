@@ -1,16 +1,24 @@
 import {
   useHistory,
+  useLocation,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
 import NavBar from "../NavBar";
-import { MdPadding } from "react-icons/md";
 
 const ViewPage = () => {
   const history = useHistory();
 
-  const getParams = useParams();
+  // From params.
+  // const getParams = useParams();
 
-  const getID = getParams.id;
+  // const getID = getParams.id;
+
+  // From query.
+  const getLocation = useLocation();
+
+  const getURLParams = new URLSearchParams(getLocation.search);
+
+  const getID = getURLParams.get("id");
 
   const getStorage = localStorage.getItem("todo")
     ? JSON.parse(localStorage.getItem("todo"))
@@ -40,7 +48,7 @@ const ViewPage = () => {
         </button>
       </div>
 
-      <div style={style}> {getData}</div>
+      <div style={style}>{getData}</div>
     </>
   );
 };

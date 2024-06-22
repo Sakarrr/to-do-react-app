@@ -9,7 +9,8 @@ const Routes = () => {
       <Route path="/" component={MainPage} exact></Route>
       <Route path="/add" component={AddToDo} exact></Route>
 
-      <Route path="/view/:id" component={ViewPage} exact />
+      {/* <Route path="/view/:id" component={ViewPage} exact /> */}
+      <Route path="/view" component={ViewPage} exact />
     </>
   );
 };
