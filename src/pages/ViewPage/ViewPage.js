@@ -1,9 +1,11 @@
 import {
+  Link,
   useHistory,
   useLocation,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
 import NavBar from "../NavBar";
+import AuthCheckBoolean from "../../middleware/AuthCheckBoolean";
 
 const ViewPage = () => {
   const history = useHistory();
@@ -57,10 +59,20 @@ const ViewPage = () => {
 
       <div style={style}>{getData}</div>
 
-      <button onClick={onDeleteHandler} style={{ background: "red" }}>
-        {" "}
-        Delete To-Do
-      </button>
+      {AuthCheckBoolean() ? (
+        <>
+          {" "}
+          <button onClick={onDeleteHandler} style={{ background: "red" }}>
+            {" "}
+            Delete To-Do
+          </button>
+        </>
+      ) : (
+        <>
+          {" "}
+          Login to see more options <Link to="/login">Login Here</Link>{" "}
+        </>
+      )}
     </>
   );
 };

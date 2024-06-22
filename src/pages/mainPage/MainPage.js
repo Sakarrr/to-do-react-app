@@ -23,17 +23,25 @@ const MainPage = () => {
 
       <div className="todo_container">
         <h3>Your To Do:</h3>
-        {getTodo.map((todo, i) => (
+        {getTodo && getTodo.length > 0 ? (
           <>
-            <div className="single_todo">
-              {" "}
-              {todo} {/* <Link to={`/view/${i}`}> */}
-              <Link to={`/view?id=${i}`}>
-                <FaEye size={"16px"} />
-              </Link>
-            </div>
+            {getTodo.map((todo, i) => (
+              <>
+                <div className="single_todo">
+                  {" "}
+                  {todo} {/* <Link to={`/view/${i}`}> */}
+                  <Link to={`/view?id=${i}`}>
+                    <FaEye size={"16px"} />
+                  </Link>
+                </div>
+              </>
+            ))}
           </>
-        ))}
+        ) : (
+          <>
+            <center>Nothing here, please add</center>
+          </>
+        )}
       </div>
       {/* <Link to="/add">Go to add Page</Link> */}
       {/* <button onClick={login}>Login</button> */}
