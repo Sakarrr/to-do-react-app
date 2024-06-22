@@ -22,7 +22,7 @@ const Routes = () => {
 
       {/* <Route path="/view/:id" component={ViewPage} exact /> */}
       <Route path="/view" component={ViewPage} exact />
-      <Route path="/login" component={Login} exact />
+      <Route path="/login" component={Login} />
     </>
   );
 };
