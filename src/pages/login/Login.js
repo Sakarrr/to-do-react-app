@@ -1,19 +1,43 @@
 // eslint-disable-next-line
-import { Link, Route } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  Link,
+  Route,
+  useHistory,
+} from "react-router-dom/cjs/react-router-dom.min";
 import NavBar from "../NavBar";
 
 const Login = () => {
+  const history = useHistory();
   return (
     <>
       <NavBar />
-
-      <button
-        onClick={() => {
-          localStorage.setItem("loggedIn", true);
-        }}
-      >
-        Login
-      </button>
+      {console.log(localStorage.getItem("loggedIn"))}
+      {localStorage.getItem("loggedIn") ? (
+        <>
+          You are already Logged In.
+          <button
+            onClick={() => {
+              alert("You are successfully logged out.");
+              localStorage.removeItem("loggedIn", false);
+              history.replace("/");
+            }}
+          >
+            LogOut
+          </button>
+        </>
+      ) : (
+        <>
+          <button
+            onClick={() => {
+              alert("You are successfully logged in.");
+              localStorage.setItem("loggedIn", true);
+              history.replace("/");
+            }}
+          >
+            Login
+          </button>
+        </>
+      )}
       <br />
       <Link to="/login/showInfo">Show login information</Link>
       <br />
