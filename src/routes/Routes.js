@@ -20,11 +20,7 @@ const Routes = () => {
         <Route path="/home" component={MainPage} exact></Route>
         {/* <Route path="/add" component={AddToDo} exact></Route> */}
         <Route path="/add" exact>
-          {localStorage.getItem("loggedIn") ? (
-            <AddToDo />
-          ) : (
-            <Redirect to="/login" />
-          )}
+          <AddToDo />
         </Route>
 
         {/* <Route path="/view/:id" component={ViewPage} exact /> */}
