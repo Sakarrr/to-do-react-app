@@ -6,12 +6,12 @@ const App = () => {
   return (
     <>
       {/* Enable multi page SPA */}
-      <BrowserRouter>
-        <Switch>
+      {/* <BrowserRouter>
+        <Switch> */}
           {/* Render Components */}
           <Routes />
-        </Switch>
-      </BrowserRouter>
+        {/* </Switch>
+      </BrowserRouter> */}
     </>
   );
 };
