@@ -1,13 +1,8 @@
-// eslint-disable-next-line
-import {
-  Link,
-  Route,
-  useHistory,
-} from "react-router-dom/cjs/react-router-dom.min";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar";
 
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <>
       <NavBar />
@@ -19,7 +14,7 @@ const Login = () => {
             onClick={() => {
               alert("You are successfully logged out.");
               localStorage.removeItem("loggedIn", false);
-              history.replace("/");
+              navigate("/", { replace: true });
             }}
           >
             LogOut
@@ -31,7 +26,7 @@ const Login = () => {
             onClick={() => {
               alert("You are successfully logged in.");
               localStorage.setItem("loggedIn", true);
-              history.replace("/");
+              navigate("/", { replace: true });
             }}
           >
             Login
@@ -42,9 +37,15 @@ const Login = () => {
       <Link to="/login/showInfo">Show login information</Link>
       <br />
       <br />
-      <Route path="/login/showInfo">
-        <div>This is dummy login and does not communicate with server</div>
-      </Route>
+      <Routes>
+        {" "}
+        <Route
+          path="/showInfo"
+          element={
+            <div>This is dummy login and does not communicate with server</div>
+          }
+        />
+      </Routes>
     </>
   );
 };

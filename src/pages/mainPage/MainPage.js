@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 import AddToDo from "../add-todo/AddToDo";
 import NavBar from "../NavBar";
 import { FaEye } from "react-icons/fa";

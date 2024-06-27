@@ -1,14 +1,10 @@
-import {
-  Link,
-  useHistory,
-  useLocation,
-  useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
+
 import NavBar from "../NavBar";
 import AuthCheckBoolean from "../../middleware/AuthCheckBoolean";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const ViewPage = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // From params.
   // const getParams = useParams();
@@ -32,7 +28,7 @@ const ViewPage = () => {
     getStorage.splice(getID, 1);
     localStorage.setItem("todo", JSON.stringify(getStorage));
 
-    history.replace("/");
+    navigate("/", { replace: true });
   };
 
   const style = {
@@ -43,7 +39,7 @@ const ViewPage = () => {
   };
 
   const goBack = () => {
-    history.push("/");
+    navigate("/");
   };
   return (
     <>

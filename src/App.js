@@ -1,6 +1,5 @@
-import { BrowserRouter, Switch } from "react-router-dom";
 import "./styles/app.css";
-import Routes from "./routes/Routes";
+import MyRoutes from "./routes/MyRoutes";
 
 const App = () => {
   return (
@@ -8,9 +7,9 @@ const App = () => {
       {/* Enable multi page SPA */}
       {/* <BrowserRouter>
         <Switch> */}
-          {/* Render Components */}
-          <Routes />
-        {/* </Switch>
+      {/* Render Components */}
+      <MyRoutes />
+      {/* </Switch>
       </BrowserRouter> */}
     </>
   );

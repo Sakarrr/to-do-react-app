@@ -1,9 +1,9 @@
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useNavigate } from "react-router-dom";
 
 const AuthCheck = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  !localStorage.getItem("loggedIn") && history.push("/login");
+  !localStorage.getItem("loggedIn") && navigate("/login", { replace: true });
 };
 
 export default AuthCheck;
